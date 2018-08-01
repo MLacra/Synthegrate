@@ -1,0 +1,1 @@
+SELECT attribute_0,attribute_1,attribute_2,attribute_3,attribute_4 FROM public.relation_0

@@ -1,0 +1,5 @@
+Match(schema_1.relation_1.attribute_0,schema_0.relation_0.attribute_0,1.0).
+Match(schema_1.relation_1.attribute_2,schema_0.relation_0.attribute_2,1.0).
+Match(schema_1.relation_1.attribute_3,schema_0.relation_0.attribute_3,1.0).
+Match(schema_1.relation_1.attribute_4,schema_0.relation_0.attribute_4,1.0).
+Match(schema_1.relation_2.attribute_1,schema_0.relation_0.attribute_1,1.0).

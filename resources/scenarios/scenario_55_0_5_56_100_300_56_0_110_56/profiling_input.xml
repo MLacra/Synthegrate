@@ -1,0 +1,1052 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile-data>
+	<keyCandidates>
+		<attribute schema = "schema_1" relation = "relation_1" name = "attribute_56"/>
+		<attribute schema = "schema_1" relation = "relation_3" name = "attribute_58"/>
+		<attribute schema = "schema_1" relation = "relation_5" name = "attribute_60"/>
+		<attribute schema = "schema_1" relation = "relation_7" name = "attribute_62"/>
+		<attribute schema = "schema_1" relation = "relation_10" name = "attribute_65"/>
+		<attribute schema = "schema_1" relation = "relation_12" name = "attribute_67"/>
+		<attribute schema = "schema_1" relation = "relation_13" name = "attribute_68"/>
+		<attribute schema = "schema_1" relation = "relation_16" name = "attribute_71"/>
+		<attribute schema = "schema_1" relation = "relation_18" name = "attribute_73"/>
+		<attribute schema = "schema_1" relation = "relation_20" name = "attribute_75"/>
+		<attribute schema = "schema_1" relation = "relation_22" name = "attribute_77"/>
+		<attribute schema = "schema_1" relation = "relation_24" name = "attribute_79"/>
+		<attribute schema = "schema_1" relation = "relation_25" name = "attribute_80"/>
+		<attribute schema = "schema_1" relation = "relation_27" name = "attribute_82"/>
+		<attribute schema = "schema_1" relation = "relation_29" name = "attribute_84"/>
+		<attribute schema = "schema_1" relation = "relation_31" name = "attribute_86"/>
+		<attribute schema = "schema_1" relation = "relation_34" name = "attribute_89"/>
+		<attribute schema = "schema_1" relation = "relation_35" name = "attribute_90"/>
+		<attribute schema = "schema_1" relation = "relation_38" name = "attribute_93"/>
+		<attribute schema = "schema_1" relation = "relation_39" name = "attribute_94"/>
+		<attribute schema = "schema_1" relation = "relation_41" name = "attribute_96"/>
+		<attribute schema = "schema_1" relation = "relation_43" name = "attribute_98"/>
+		<attribute schema = "schema_1" relation = "relation_46" name = "attribute_101"/>
+		<attribute schema = "schema_1" relation = "relation_48" name = "attribute_103"/>
+		<attribute schema = "schema_1" relation = "relation_49" name = "attribute_104"/>
+		<attribute schema = "schema_1" relation = "relation_51" name = "attribute_106"/>
+		<attribute schema = "schema_1" relation = "relation_53" name = "attribute_108"/>
+		<attribute schema = "schema_1" relation = "relation_55" name = "attribute_110"/>
+		<attribute schema = "schema_1" relation = "relation_58" name = "attribute_113"/>
+		<attribute schema = "schema_1" relation = "relation_59" name = "attribute_114"/>
+		<attribute schema = "schema_1" relation = "relation_61" name = "attribute_116"/>
+		<attribute schema = "schema_1" relation = "relation_63" name = "attribute_118"/>
+		<attribute schema = "schema_1" relation = "relation_66" name = "attribute_121"/>
+		<attribute schema = "schema_1" relation = "relation_68" name = "attribute_123"/>
+		<attribute schema = "schema_1" relation = "relation_70" name = "attribute_125"/>
+		<attribute schema = "schema_1" relation = "relation_71" name = "attribute_126"/>
+		<attribute schema = "schema_1" relation = "relation_71" name = "attribute_36"/>
+		<attribute schema = "schema_1" relation = "relation_74" name = "attribute_129"/>
+		<attribute schema = "schema_1" relation = "relation_75" name = "attribute_130"/>
+		<attribute schema = "schema_1" relation = "relation_78" name = "attribute_133"/>
+		<attribute schema = "schema_1" relation = "relation_80" name = "attribute_135"/>
+		<attribute schema = "schema_1" relation = "relation_82" name = "attribute_137"/>
+		<attribute schema = "schema_1" relation = "relation_83" name = "attribute_138"/>
+		<attribute schema = "schema_1" relation = "relation_86" name = "attribute_141"/>
+		<attribute schema = "schema_1" relation = "relation_87" name = "attribute_142"/>
+		<attribute schema = "schema_1" relation = "relation_89" name = "attribute_144"/>
+		<attribute schema = "schema_1" relation = "relation_92" name = "attribute_147"/>
+		<attribute schema = "schema_1" relation = "relation_93" name = "attribute_148"/>
+		<attribute schema = "schema_1" relation = "relation_95" name = "attribute_150"/>
+		<attribute schema = "schema_1" relation = "relation_97" name = "attribute_152"/>
+		<attribute schema = "schema_1" relation = "relation_100" name = "attribute_155"/>
+		<attribute schema = "schema_1" relation = "relation_102" name = "attribute_157"/>
+		<attribute schema = "schema_1" relation = "relation_103" name = "attribute_158"/>
+		<attribute schema = "schema_1" relation = "relation_106" name = "attribute_161"/>
+		<attribute schema = "schema_1" relation = "relation_107" name = "attribute_162"/>
+		<attribute schema = "schema_1" relation = "relation_110" name = "attribute_165"/>
+	</keyCandidates>
+	<inclusion-dependencies>
+		<inclusion-dependency>
+			<is-included distinct_values = "167">
+				<attribute schema = "schema_1" relation = "relation_29" name = "attribute_84"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_31" name = "attribute_85"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "184">
+				<attribute schema = "schema_1" relation = "relation_61" name = "attribute_115"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_59" name = "attribute_114"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "151">
+				<attribute schema = "schema_1" relation = "relation_106" name = "attribute_159"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_103" name = "attribute_158"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "60">
+				<attribute schema = "schema_1" relation = "relation_7" name = "attribute_62"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_10" name = "attribute_63"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "245">
+				<attribute schema = "schema_1" relation = "relation_70" name = "attribute_125"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_71" name = "attribute_124"/>
+			</includes>
+			<coefficient value = "0.23265306122448978"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "140">
+				<attribute schema = "schema_1" relation = "relation_16" name = "attribute_69"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_13" name = "attribute_68"/>
+			</includes>
+			<coefficient value = "0.30714285714285716"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "167">
+				<attribute schema = "schema_1" relation = "relation_29" name = "attribute_83"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_27" name = "attribute_82"/>
+			</includes>
+			<coefficient value = "0.1377245508982036"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "245">
+				<attribute schema = "schema_1" relation = "relation_82" name = "attribute_134"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_80" name = "attribute_135"/>
+			</includes>
+			<coefficient value = "0.6816326530612244"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "37">
+				<attribute schema = "schema_1" relation = "relation_66" name = "attribute_119"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_63" name = "attribute_118"/>
+			</includes>
+			<coefficient value = "0.6756756756756757"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "224">
+				<attribute schema = "schema_1" relation = "relation_74" name = "attribute_127"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_71" name = "attribute_126"/>
+			</includes>
+			<coefficient value = "0.2544642857142857"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "83">
+				<attribute schema = "schema_1" relation = "relation_68" name = "attribute_120"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_66" name = "attribute_121"/>
+			</includes>
+			<coefficient value = "0.4457831325301205"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "245">
+				<attribute schema = "schema_1" relation = "relation_82" name = "attribute_137"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_83" name = "attribute_136"/>
+			</includes>
+			<coefficient value = "0.3551020408163265"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "207">
+				<attribute schema = "schema_1" relation = "relation_110" name = "attribute_163"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_107" name = "attribute_162"/>
+			</includes>
+			<coefficient value = "0.3188405797101449"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "60">
+				<attribute schema = "schema_1" relation = "relation_7" name = "attribute_61"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_5" name = "attribute_60"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "14">
+				<attribute schema = "schema_1" relation = "relation_75" name = "attribute_130"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_78" name = "attribute_131"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "87">
+				<attribute schema = "schema_1" relation = "relation_83" name = "attribute_138"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_86" name = "attribute_139"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "167">
+				<attribute schema = "schema_1" relation = "relation_97" name = "attribute_152"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_100" name = "attribute_153"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "264">
+				<attribute schema = "schema_1" relation = "relation_51" name = "attribute_106"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_53" name = "attribute_107"/>
+			</includes>
+			<coefficient value = "0.20454545454545456"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "106">
+				<attribute schema = "schema_1" relation = "relation_48" name = "attribute_103"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_49" name = "attribute_102"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "108">
+				<attribute schema = "schema_1" relation = "relation_39" name = "attribute_94"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_41" name = "attribute_95"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "221">
+				<attribute schema = "schema_1" relation = "relation_59" name = "attribute_114"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_61" name = "attribute_115"/>
+			</includes>
+			<coefficient value = "0.832579185520362"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "60">
+				<attribute schema = "schema_1" relation = "relation_3" name = "attribute_58"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_5" name = "attribute_59"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "92">
+				<attribute schema = "schema_1" relation = "relation_20" name = "attribute_72"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_18" name = "attribute_73"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "231">
+				<attribute schema = "schema_1" relation = "relation_38" name = "attribute_93"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_39" name = "attribute_92"/>
+			</includes>
+			<coefficient value = "0.4675324675324675"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "284">
+				<attribute schema = "schema_1" relation = "relation_43" name = "attribute_97"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_41" name = "attribute_96"/>
+			</includes>
+			<coefficient value = "0.8626760563380281"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "183">
+				<attribute schema = "schema_1" relation = "relation_86" name = "attribute_139"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_83" name = "attribute_138"/>
+			</includes>
+			<coefficient value = "0.47540983606557374"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "151">
+				<attribute schema = "schema_1" relation = "relation_106" name = "attribute_161"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_107" name = "attribute_160"/>
+			</includes>
+			<coefficient value = "0.4370860927152318"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "121">
+				<attribute schema = "schema_1" relation = "relation_78" name = "attribute_131"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_75" name = "attribute_130"/>
+			</includes>
+			<coefficient value = "0.11570247933884298"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "287">
+				<attribute schema = "schema_1" relation = "relation_92" name = "attribute_147"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_93" name = "attribute_146"/>
+			</includes>
+			<coefficient value = "0.3554006968641115"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "60">
+				<attribute schema = "schema_1" relation = "relation_3" name = "attribute_57"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_1" name = "attribute_56"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "66">
+				<attribute schema = "schema_1" relation = "relation_107" name = "attribute_162"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_110" name = "attribute_163"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "140">
+				<attribute schema = "schema_1" relation = "relation_16" name = "attribute_71"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_18" name = "attribute_70"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "129">
+				<attribute schema = "schema_1" relation = "relation_24" name = "attribute_79"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_25" name = "attribute_78"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "292">
+				<attribute schema = "schema_1" relation = "relation_31" name = "attribute_85"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_29" name = "attribute_84"/>
+			</includes>
+			<coefficient value = "0.571917808219178"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "57">
+				<attribute schema = "schema_1" relation = "relation_71" name = "attribute_126"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_74" name = "attribute_127"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "102">
+				<attribute schema = "schema_1" relation = "relation_93" name = "attribute_148"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_95" name = "attribute_149"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "238">
+				<attribute schema = "schema_1" relation = "relation_49" name = "attribute_104"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_51" name = "attribute_105"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "25">
+				<attribute schema = "schema_1" relation = "relation_63" name = "attribute_117"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_61" name = "attribute_116"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "114">
+				<attribute schema = "schema_1" relation = "relation_12" name = "attribute_64"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_10" name = "attribute_65"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "177">
+				<attribute schema = "schema_1" relation = "relation_10" name = "attribute_63"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_7" name = "attribute_62"/>
+			</includes>
+			<coefficient value = "0.3389830508474576"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "207">
+				<attribute schema = "schema_1" relation = "relation_110" name = "attribute_165"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_109" name = "attribute_164"/>
+			</includes>
+			<coefficient value = "0.05314009661835749"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "202">
+				<attribute schema = "schema_1" relation = "relation_18" name = "attribute_70"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_16" name = "attribute_71"/>
+			</includes>
+			<coefficient value = "0.693069306930693"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "191">
+				<attribute schema = "schema_1" relation = "relation_25" name = "attribute_78"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_24" name = "attribute_79"/>
+			</includes>
+			<coefficient value = "0.675392670157068"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "224">
+				<attribute schema = "schema_1" relation = "relation_74" name = "attribute_129"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_75" name = "attribute_128"/>
+			</includes>
+			<coefficient value = "0.0625"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "105">
+				<attribute schema = "schema_1" relation = "relation_55" name = "attribute_110"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_58" name = "attribute_111"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "25">
+				<attribute schema = "schema_1" relation = "relation_63" name = "attribute_118"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_66" name = "attribute_119"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "290">
+				<attribute schema = "schema_1" relation = "relation_87" name = "attribute_140"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_86" name = "attribute_141"/>
+			</includes>
+			<coefficient value = "0.6310344827586207"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "134">
+				<attribute schema = "schema_1" relation = "relation_102" name = "attribute_154"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_100" name = "attribute_155"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "245">
+				<attribute schema = "schema_1" relation = "relation_41" name = "attribute_96"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_43" name = "attribute_97"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "183">
+				<attribute schema = "schema_1" relation = "relation_86" name = "attribute_141"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_87" name = "attribute_140"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "226">
+				<attribute schema = "schema_1" relation = "relation_5" name = "attribute_59"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_3" name = "attribute_58"/>
+			</includes>
+			<coefficient value = "0.26548672566371684"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "202">
+				<attribute schema = "schema_1" relation = "relation_18" name = "attribute_73"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_20" name = "attribute_72"/>
+			</includes>
+			<coefficient value = "0.45544554455445546"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "114">
+				<attribute schema = "schema_1" relation = "relation_12" name = "attribute_67"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_13" name = "attribute_66"/>
+			</includes>
+			<coefficient value = "0.37719298245614036"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "113">
+				<attribute schema = "schema_1" relation = "relation_34" name = "attribute_89"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_35" name = "attribute_88"/>
+			</includes>
+			<coefficient value = "0.6548672566371682"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "287">
+				<attribute schema = "schema_1" relation = "relation_92" name = "attribute_145"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_89" name = "attribute_144"/>
+			</includes>
+			<coefficient value = "0.7491289198606271"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "101">
+				<attribute schema = "schema_1" relation = "relation_22" name = "attribute_74"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_20" name = "attribute_75"/>
+			</includes>
+			<coefficient value = "0.9108910891089109"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "11">
+				<attribute schema = "schema_1" relation = "relation_109" name = "attribute_164"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_110" name = "attribute_165"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "14">
+				<attribute schema = "schema_1" relation = "relation_75" name = "attribute_128"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_74" name = "attribute_129"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "166">
+				<attribute schema = "schema_1" relation = "relation_46" name = "attribute_101"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_48" name = "attribute_100"/>
+			</includes>
+			<coefficient value = "0.6385542168674698"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "74">
+				<attribute schema = "schema_1" relation = "relation_35" name = "attribute_88"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_34" name = "attribute_89"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "121">
+				<attribute schema = "schema_1" relation = "relation_78" name = "attribute_133"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_80" name = "attribute_132"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "43">
+				<attribute schema = "schema_1" relation = "relation_13" name = "attribute_66"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_12" name = "attribute_67"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "238">
+				<attribute schema = "schema_1" relation = "relation_49" name = "attribute_102"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_48" name = "attribute_103"/>
+			</includes>
+			<coefficient value = "0.44537815126050423"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "264">
+				<attribute schema = "schema_1" relation = "relation_51" name = "attribute_105"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_49" name = "attribute_104"/>
+			</includes>
+			<coefficient value = "0.9015151515151515"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "105">
+				<attribute schema = "schema_1" relation = "relation_55" name = "attribute_109"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_53" name = "attribute_108"/>
+			</includes>
+			<coefficient value = "0.5142857142857142"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "167">
+				<attribute schema = "schema_1" relation = "relation_97" name = "attribute_151"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_95" name = "attribute_150"/>
+			</includes>
+			<coefficient value = "0.7305389221556886"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "129">
+				<attribute schema = "schema_1" relation = "relation_24" name = "attribute_76"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_22" name = "attribute_77"/>
+			</includes>
+			<coefficient value = "0.7829457364341085"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "113">
+				<attribute schema = "schema_1" relation = "relation_34" name = "attribute_87"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_31" name = "attribute_86"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "221">
+				<attribute schema = "schema_1" relation = "relation_59" name = "attribute_112"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_58" name = "attribute_113"/>
+			</includes>
+			<coefficient value = "0.9502262443438914"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "54">
+				<attribute schema = "schema_1" relation = "relation_53" name = "attribute_107"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_51" name = "attribute_106"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "74">
+				<attribute schema = "schema_1" relation = "relation_35" name = "attribute_90"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_38" name = "attribute_91"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "37">
+				<attribute schema = "schema_1" relation = "relation_66" name = "attribute_121"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_68" name = "attribute_120"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "215">
+				<attribute schema = "schema_1" relation = "relation_89" name = "attribute_143"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_87" name = "attribute_142"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "122">
+				<attribute schema = "schema_1" relation = "relation_95" name = "attribute_149"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_93" name = "attribute_148"/>
+			</includes>
+			<coefficient value = "0.8360655737704918"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "191">
+				<attribute schema = "schema_1" relation = "relation_25" name = "attribute_80"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_27" name = "attribute_81"/>
+			</includes>
+			<coefficient value = "0.12041884816753927"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "272">
+				<attribute schema = "schema_1" relation = "relation_103" name = "attribute_158"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_106" name = "attribute_159"/>
+			</includes>
+			<coefficient value = "0.5551470588235294"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "92">
+				<attribute schema = "schema_1" relation = "relation_20" name = "attribute_75"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_22" name = "attribute_74"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "215">
+				<attribute schema = "schema_1" relation = "relation_89" name = "attribute_144"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_92" name = "attribute_145"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "106">
+				<attribute schema = "schema_1" relation = "relation_48" name = "attribute_100"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_46" name = "attribute_101"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "54">
+				<attribute schema = "schema_1" relation = "relation_53" name = "attribute_108"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_55" name = "attribute_109"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "23">
+				<attribute schema = "schema_1" relation = "relation_27" name = "attribute_82"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_29" name = "attribute_83"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "284">
+				<attribute schema = "schema_1" relation = "relation_43" name = "attribute_98"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_46" name = "attribute_99"/>
+			</includes>
+			<coefficient value = "0.5845070422535211"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "210">
+				<attribute schema = "schema_1" relation = "relation_58" name = "attribute_113"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_59" name = "attribute_112"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "167">
+				<attribute schema = "schema_1" relation = "relation_80" name = "attribute_135"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_82" name = "attribute_134"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "134">
+				<attribute schema = "schema_1" relation = "relation_102" name = "attribute_157"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_103" name = "attribute_156"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "43">
+				<attribute schema = "schema_1" relation = "relation_13" name = "attribute_68"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_16" name = "attribute_69"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "245">
+				<attribute schema = "schema_1" relation = "relation_41" name = "attribute_95"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_39" name = "attribute_94"/>
+			</includes>
+			<coefficient value = "0.44081632653061226"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "245">
+				<attribute schema = "schema_1" relation = "relation_70" name = "attribute_122"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_68" name = "attribute_123"/>
+			</includes>
+			<coefficient value = "0.33877551020408164"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "292">
+				<attribute schema = "schema_1" relation = "relation_31" name = "attribute_86"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_34" name = "attribute_87"/>
+			</includes>
+			<coefficient value = "0.386986301369863"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "167">
+				<attribute schema = "schema_1" relation = "relation_80" name = "attribute_132"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_78" name = "attribute_133"/>
+			</includes>
+			<coefficient value = "0.7245508982035929"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "184">
+				<attribute schema = "schema_1" relation = "relation_61" name = "attribute_116"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_63" name = "attribute_117"/>
+			</includes>
+			<coefficient value = "0.1358695652173913"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "253">
+				<attribute schema = "schema_1" relation = "relation_100" name = "attribute_153"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_97" name = "attribute_152"/>
+			</includes>
+			<coefficient value = "0.6600790513833992"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "226">
+				<attribute schema = "schema_1" relation = "relation_5" name = "attribute_60"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_7" name = "attribute_61"/>
+			</includes>
+			<coefficient value = "0.26548672566371684"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "23">
+				<attribute schema = "schema_1" relation = "relation_27" name = "attribute_81"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_25" name = "attribute_80"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "87">
+				<attribute schema = "schema_1" relation = "relation_83" name = "attribute_136"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_82" name = "attribute_137"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "122">
+				<attribute schema = "schema_1" relation = "relation_95" name = "attribute_150"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_97" name = "attribute_151"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "108">
+				<attribute schema = "schema_1" relation = "relation_39" name = "attribute_92"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_38" name = "attribute_93"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "83">
+				<attribute schema = "schema_1" relation = "relation_68" name = "attribute_123"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_70" name = "attribute_122"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "272">
+				<attribute schema = "schema_1" relation = "relation_103" name = "attribute_156"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_102" name = "attribute_157"/>
+			</includes>
+			<coefficient value = "0.49264705882352944"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "231">
+				<attribute schema = "schema_1" relation = "relation_38" name = "attribute_91"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_35" name = "attribute_90"/>
+			</includes>
+			<coefficient value = "0.3203463203463203"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "290">
+				<attribute schema = "schema_1" relation = "relation_87" name = "attribute_142"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_89" name = "attribute_143"/>
+			</includes>
+			<coefficient value = "0.7413793103448276"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "210">
+				<attribute schema = "schema_1" relation = "relation_58" name = "attribute_111"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_55" name = "attribute_110"/>
+			</includes>
+			<coefficient value = "0.5"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "253">
+				<attribute schema = "schema_1" relation = "relation_100" name = "attribute_155"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_102" name = "attribute_154"/>
+			</includes>
+			<coefficient value = "0.5296442687747036"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "68">
+				<attribute schema = "schema_1" relation = "relation_1" name = "attribute_56"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_3" name = "attribute_57"/>
+			</includes>
+			<coefficient value = "0.8823529411764706"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "66">
+				<attribute schema = "schema_1" relation = "relation_107" name = "attribute_160"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_106" name = "attribute_161"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "177">
+				<attribute schema = "schema_1" relation = "relation_10" name = "attribute_65"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_12" name = "attribute_64"/>
+			</includes>
+			<coefficient value = "0.6440677966101694"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "101">
+				<attribute schema = "schema_1" relation = "relation_22" name = "attribute_77"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_24" name = "attribute_76"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "166">
+				<attribute schema = "schema_1" relation = "relation_46" name = "attribute_99"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_43" name = "attribute_98"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "57">
+				<attribute schema = "schema_1" relation = "relation_71" name = "attribute_124"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_70" name = "attribute_125"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+		<inclusion-dependency>
+			<is-included distinct_values = "102">
+				<attribute schema = "schema_1" relation = "relation_93" name = "attribute_146"/>
+			</is-included>
+			<includes>
+				<attribute schema = "schema_1" relation ="relation_92" name = "attribute_147"/>
+			</includes>
+			<coefficient value = "1.0"></coefficient>
+		</inclusion-dependency>
+	</inclusion-dependencies></profile-data>

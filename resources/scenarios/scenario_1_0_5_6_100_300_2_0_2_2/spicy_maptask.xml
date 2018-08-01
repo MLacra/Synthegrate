@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappingtask>
+  <config>
+ <rewriteSubsumptions>true</rewriteSubsumptions>
+    <rewriteCoverages>true</rewriteCoverages>
+    <rewriteSelfJoins>true</rewriteSelfJoins>
+    <rewriteEGDs>true</rewriteEGDs>
+    <sortStrategy>-1</sortStrategy>
+    <skolemTableStrategy>-1</skolemTableStrategy>
+    <useLocalSkolem>false</useLocalSkolem>
+  </config>
+  <source>
+    <type>relational</type>
+    <relational>
+      <driver>org.postgresql.Driver</driver>
+ <uri>jdbc:postgresql://localhost:5432/tests_generator_chain_join</uri>
+ <login>lara</login>
+ <password>postgres</password> 
+ </relational>
+    <inclusions />
+    <exclusions />
+    <duplications />
+    <functionalDependencies />
+    <selectionConditions />
+ <joinConditions>
+ </joinConditions>
+  </source> 
+ <target>
+    <type>relational</type>
+    <relational>
+      <driver>org.postgresql.Driver</driver>
+      <uri> jdbc:postgresql://localhost:5432/tests_generator_chain_join_spicy_target</uri>
+ <login>lara</login>
+      <password>postgres</password>
+    </relational>
+    <inclusions />
+    <exclusions />
+    <duplications />
+    <functionalDependencies />
+    <selectionConditions />
+    <joinConditions />
+  </target> 
+<correspondences>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_1.relation_1Tuple.attribute_0</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_0</target-path>
+<transformation-function>tests_generator_chain_join.relation_1.relation_1Tuple.attribute_0</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_1.relation_1Tuple.attribute_2</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_2</target-path>
+<transformation-function>tests_generator_chain_join.relation_1.relation_1Tuple.attribute_2</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_1.relation_1Tuple.attribute_3</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_3</target-path>
+<transformation-function>tests_generator_chain_join.relation_1.relation_1Tuple.attribute_3</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_1.relation_1Tuple.attribute_4</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_4</target-path>
+<transformation-function>tests_generator_chain_join.relation_1.relation_1Tuple.attribute_4</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_2.relation_2Tuple.attribute_1</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_1</target-path>
+<transformation-function>tests_generator_chain_join.relation_2.relation_2Tuple.attribute_1</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+</correspondences>
+</mappingtask>

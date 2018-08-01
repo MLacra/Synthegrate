@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]
+  then
+    echo "No arguments supplied: \n source_database_name [optional] spicy_target_dabatase_name "
+fi
+./dataFillerRunner.sh.txt $1
+
+if [ -z "$2" ]
+  then
+    exit 1
+fi
+
+./build_spicy_target_db.txt $2

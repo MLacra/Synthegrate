@@ -1,0 +1,20 @@
+#!/bin/bash
+
+DF_HOME="./"
+SCENARIOS_ROOT_HOME="${DF_HOME}/scenario"
+DF_COMMAND="python datafiller.py "
+
+for scen in `ls -1d ${SCENARIOS_ROOT_HOME}_*`
+do
+	for sql_file in `ls -1 ${scen}/schema_*.sql`
+	do
+		psql $1 < $sql_file  
+	done	
+
+	for df_file in `ls -1 ${scen}/datafiller_*.sql`
+	do
+		chrlen=${#df_file}
+		$DF_COMMAND  $df_file |sed 's/FREEZE ON/FREEZE OFF/g' |  psql $1
+	done	
+done
+# $DF_COMMAND $df_file > ${df_file:0:chrlen-4}_data.sql 

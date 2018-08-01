@@ -1,0 +1,2 @@
+datasource(schema_0,localhost:5432/tests_generator_chain_join,JDBC_POSTGRES,null).
+datasource(schema_1,localhost:5432/tests_generator_chain_join,JDBC_POSTGRES,null).

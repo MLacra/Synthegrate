@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappingtask>
+  <config>
+ <rewriteSubsumptions>true</rewriteSubsumptions>
+    <rewriteCoverages>true</rewriteCoverages>
+    <rewriteSelfJoins>true</rewriteSelfJoins>
+    <rewriteEGDs>true</rewriteEGDs>
+    <sortStrategy>-1</sortStrategy>
+    <skolemTableStrategy>-1</skolemTableStrategy>
+    <useLocalSkolem>false</useLocalSkolem>
+  </config>
+  <source>
+    <type>relational</type>
+    <relational>
+      <driver>org.postgresql.Driver</driver>
+ <uri>jdbc:postgresql://localhost:5432/tests_generator_chain_join</uri>
+ <login>lara</login>
+ <password>postgres</password> 
+ </relational>
+    <inclusions />
+    <exclusions />
+    <duplications />
+    <functionalDependencies />
+    <selectionConditions />
+ <joinConditions>
+ </joinConditions>
+  </source> 
+ <target>
+    <type>relational</type>
+    <relational>
+      <driver>org.postgresql.Driver</driver>
+      <uri> jdbc:postgresql://localhost:5432/tests_generator_chain_join_spicy_target</uri>
+ <login>lara</login>
+      <password>postgres</password>
+    </relational>
+    <inclusions />
+    <exclusions />
+    <duplications />
+    <functionalDependencies />
+    <selectionConditions />
+    <joinConditions />
+  </target> 
+<correspondences>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_1.relation_1Tuple.attribute_1</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_1</target-path>
+<transformation-function>tests_generator_chain_join.relation_1.relation_1Tuple.attribute_1</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_10.relation_10Tuple.attribute_5</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_5</target-path>
+<transformation-function>tests_generator_chain_join.relation_10.relation_10Tuple.attribute_5</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_100.relation_100Tuple.attribute_50</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_50</target-path>
+<transformation-function>tests_generator_chain_join.relation_100.relation_100Tuple.attribute_50</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_102.relation_102Tuple.attribute_51</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_51</target-path>
+<transformation-function>tests_generator_chain_join.relation_102.relation_102Tuple.attribute_51</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_103.relation_103Tuple.attribute_52</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_52</target-path>
+<transformation-function>tests_generator_chain_join.relation_103.relation_103Tuple.attribute_52</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_106.relation_106Tuple.attribute_53</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_53</target-path>
+<transformation-function>tests_generator_chain_join.relation_106.relation_106Tuple.attribute_53</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_107.relation_107Tuple.attribute_54</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_54</target-path>
+<transformation-function>tests_generator_chain_join.relation_107.relation_107Tuple.attribute_54</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_109.relation_109Tuple.attribute_0</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_0</target-path>
+<transformation-function>tests_generator_chain_join.relation_109.relation_109Tuple.attribute_0</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_110.relation_110Tuple.attribute_55</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_55</target-path>
+<transformation-function>tests_generator_chain_join.relation_110.relation_110Tuple.attribute_55</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_12.relation_12Tuple.attribute_6</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_6</target-path>
+<transformation-function>tests_generator_chain_join.relation_12.relation_12Tuple.attribute_6</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_13.relation_13Tuple.attribute_7</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_7</target-path>
+<transformation-function>tests_generator_chain_join.relation_13.relation_13Tuple.attribute_7</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_16.relation_16Tuple.attribute_8</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_8</target-path>
+<transformation-function>tests_generator_chain_join.relation_16.relation_16Tuple.attribute_8</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_18.relation_18Tuple.attribute_9</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_9</target-path>
+<transformation-function>tests_generator_chain_join.relation_18.relation_18Tuple.attribute_9</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_20.relation_20Tuple.attribute_10</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_10</target-path>
+<transformation-function>tests_generator_chain_join.relation_20.relation_20Tuple.attribute_10</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_22.relation_22Tuple.attribute_11</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_11</target-path>
+<transformation-function>tests_generator_chain_join.relation_22.relation_22Tuple.attribute_11</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_24.relation_24Tuple.attribute_12</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_12</target-path>
+<transformation-function>tests_generator_chain_join.relation_24.relation_24Tuple.attribute_12</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_25.relation_25Tuple.attribute_13</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_13</target-path>
+<transformation-function>tests_generator_chain_join.relation_25.relation_25Tuple.attribute_13</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_27.relation_27Tuple.attribute_14</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_14</target-path>
+<transformation-function>tests_generator_chain_join.relation_27.relation_27Tuple.attribute_14</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_29.relation_29Tuple.attribute_15</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_15</target-path>
+<transformation-function>tests_generator_chain_join.relation_29.relation_29Tuple.attribute_15</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_3.relation_3Tuple.attribute_2</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_2</target-path>
+<transformation-function>tests_generator_chain_join.relation_3.relation_3Tuple.attribute_2</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_31.relation_31Tuple.attribute_16</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_16</target-path>
+<transformation-function>tests_generator_chain_join.relation_31.relation_31Tuple.attribute_16</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_34.relation_34Tuple.attribute_17</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_17</target-path>
+<transformation-function>tests_generator_chain_join.relation_34.relation_34Tuple.attribute_17</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_35.relation_35Tuple.attribute_18</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_18</target-path>
+<transformation-function>tests_generator_chain_join.relation_35.relation_35Tuple.attribute_18</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_38.relation_38Tuple.attribute_19</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_19</target-path>
+<transformation-function>tests_generator_chain_join.relation_38.relation_38Tuple.attribute_19</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_39.relation_39Tuple.attribute_20</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_20</target-path>
+<transformation-function>tests_generator_chain_join.relation_39.relation_39Tuple.attribute_20</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_41.relation_41Tuple.attribute_21</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_21</target-path>
+<transformation-function>tests_generator_chain_join.relation_41.relation_41Tuple.attribute_21</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_43.relation_43Tuple.attribute_22</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_22</target-path>
+<transformation-function>tests_generator_chain_join.relation_43.relation_43Tuple.attribute_22</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_46.relation_46Tuple.attribute_23</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_23</target-path>
+<transformation-function>tests_generator_chain_join.relation_46.relation_46Tuple.attribute_23</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_48.relation_48Tuple.attribute_24</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_24</target-path>
+<transformation-function>tests_generator_chain_join.relation_48.relation_48Tuple.attribute_24</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_49.relation_49Tuple.attribute_25</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_25</target-path>
+<transformation-function>tests_generator_chain_join.relation_49.relation_49Tuple.attribute_25</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_5.relation_5Tuple.attribute_3</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_3</target-path>
+<transformation-function>tests_generator_chain_join.relation_5.relation_5Tuple.attribute_3</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_51.relation_51Tuple.attribute_26</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_26</target-path>
+<transformation-function>tests_generator_chain_join.relation_51.relation_51Tuple.attribute_26</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_53.relation_53Tuple.attribute_27</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_27</target-path>
+<transformation-function>tests_generator_chain_join.relation_53.relation_53Tuple.attribute_27</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_55.relation_55Tuple.attribute_28</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_28</target-path>
+<transformation-function>tests_generator_chain_join.relation_55.relation_55Tuple.attribute_28</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_58.relation_58Tuple.attribute_29</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_29</target-path>
+<transformation-function>tests_generator_chain_join.relation_58.relation_58Tuple.attribute_29</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_59.relation_59Tuple.attribute_30</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_30</target-path>
+<transformation-function>tests_generator_chain_join.relation_59.relation_59Tuple.attribute_30</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_61.relation_61Tuple.attribute_31</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_31</target-path>
+<transformation-function>tests_generator_chain_join.relation_61.relation_61Tuple.attribute_31</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_63.relation_63Tuple.attribute_32</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_32</target-path>
+<transformation-function>tests_generator_chain_join.relation_63.relation_63Tuple.attribute_32</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_66.relation_66Tuple.attribute_33</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_33</target-path>
+<transformation-function>tests_generator_chain_join.relation_66.relation_66Tuple.attribute_33</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_68.relation_68Tuple.attribute_34</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_34</target-path>
+<transformation-function>tests_generator_chain_join.relation_68.relation_68Tuple.attribute_34</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_7.relation_7Tuple.attribute_4</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_4</target-path>
+<transformation-function>tests_generator_chain_join.relation_7.relation_7Tuple.attribute_4</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_70.relation_70Tuple.attribute_35</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_35</target-path>
+<transformation-function>tests_generator_chain_join.relation_70.relation_70Tuple.attribute_35</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_71.relation_71Tuple.attribute_36</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_36</target-path>
+<transformation-function>tests_generator_chain_join.relation_71.relation_71Tuple.attribute_36</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_74.relation_74Tuple.attribute_37</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_37</target-path>
+<transformation-function>tests_generator_chain_join.relation_74.relation_74Tuple.attribute_37</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_75.relation_75Tuple.attribute_38</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_38</target-path>
+<transformation-function>tests_generator_chain_join.relation_75.relation_75Tuple.attribute_38</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_78.relation_78Tuple.attribute_39</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_39</target-path>
+<transformation-function>tests_generator_chain_join.relation_78.relation_78Tuple.attribute_39</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_80.relation_80Tuple.attribute_40</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_40</target-path>
+<transformation-function>tests_generator_chain_join.relation_80.relation_80Tuple.attribute_40</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_82.relation_82Tuple.attribute_41</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_41</target-path>
+<transformation-function>tests_generator_chain_join.relation_82.relation_82Tuple.attribute_41</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_83.relation_83Tuple.attribute_42</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_42</target-path>
+<transformation-function>tests_generator_chain_join.relation_83.relation_83Tuple.attribute_42</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_86.relation_86Tuple.attribute_43</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_43</target-path>
+<transformation-function>tests_generator_chain_join.relation_86.relation_86Tuple.attribute_43</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_87.relation_87Tuple.attribute_44</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_44</target-path>
+<transformation-function>tests_generator_chain_join.relation_87.relation_87Tuple.attribute_44</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_89.relation_89Tuple.attribute_45</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_45</target-path>
+<transformation-function>tests_generator_chain_join.relation_89.relation_89Tuple.attribute_45</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_92.relation_92Tuple.attribute_46</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_46</target-path>
+<transformation-function>tests_generator_chain_join.relation_92.relation_92Tuple.attribute_46</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_93.relation_93Tuple.attribute_47</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_47</target-path>
+<transformation-function>tests_generator_chain_join.relation_93.relation_93Tuple.attribute_47</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_95.relation_95Tuple.attribute_48</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_48</target-path>
+<transformation-function>tests_generator_chain_join.relation_95.relation_95Tuple.attribute_48</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+<correspondence>
+<source-paths>
+<source-path>tests_generator_chain_join.relation_97.relation_97Tuple.attribute_49</source-path>
+</source-paths>
+<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_49</target-path>
+<transformation-function>tests_generator_chain_join.relation_97.relation_97Tuple.attribute_49</transformation-function>
+ <confidence>1.0</confidence>
+</correspondence>
+</correspondences>
+</mappingtask>
