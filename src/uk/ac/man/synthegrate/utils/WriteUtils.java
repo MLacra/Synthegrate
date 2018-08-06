@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Properties;
 
 import uk.ac.man.synthegrate.generator.MappingNode;
 import uk.ac.man.synthegrate.generator.Synthegrate;
@@ -18,30 +19,70 @@ import uk.ac.man.synthegrate.schema_components.Relation;
 
 public class WriteUtils {
 
-	static final String DEFAULT_FOLDER = "resources/top_down_scale_scenarios";
-	static final String PROFILE_FILE_NAME = "profiling_input.xml";
-	static final String DISTRACTION_FILE_NAME = "distractions.in";
-	static final String DATASOURCE_FILE_NAME = "datasource.vada";
-	static final String MATCH_FILE_NAME = "match.vada";
-	static final String EXPECTED_SQL_MAPPING = "expected_mapping.sql";
-	static final String SOURCE_TARGET_PAIRS_FILE_NAME = "sourceTargetPairs.vada";
-	static final String DATABASE_PREFIX = "jdbc:postgresql://";
+	static String DEFAULT_FOLDER;
+	static String PROFILE_FILE_NAME;
+	static String DISTRACTION_FILE_NAME = "distractions.in";
+	static String DATASOURCE_FILE_NAME;
+	static String MATCH_FILE_NAME;
+	static String EXPECTED_SQL_MAPPING;
+	static String SOURCE_TARGET_PAIRS_FILE_NAME;
+	static String DATABASE_PREFIX;
+
+	static String DATABASE_NAME;
+	static String DATABASE_LOCATION;
+	static String DATABASE_PORT;
+	static String DATABASE_URL;
+	static String DATABASE_URL_SPICY;
+	static String DATABASE_NAME_SPICY;
+	static String DATABASE_DRIVER;
+	static String SPICY_MAPTASK;
+	static String SPICY_MAPPING = "spicy_mapping.sql";
 	
-	static final String DATABASE_NAME = "tests_generator_chain_join";
+	static String DATABASE_USERNAME;
+	static String DATABASE_PASSWORD;
 	
-	static final String DATABASE_URL = "localhost:5432/"+DATABASE_NAME;
-	static final String DATABASE_URL_SPICY = "localhost:5432/"+DATABASE_NAME+"_spicy_target";
-	static final String DATABASE_NAME_SPICY = DATABASE_NAME+"_spicy_target";
-	static final String DATABASE_DRIVER = "JDBC_POSTGRES";
-	static final String SPICY_MAPTASK = "spicy_maptask.xml";
-	static String SPICY_MAPPING = "spicy_mapping";
-	
-	
+	static String DICTIONARIES_FOLDER;
+
+	public static void set_properties(Properties synthegrateProperties) {
+
+		DICTIONARIES_FOLDER = synthegrateProperties.getProperty(Constants.DICTIONARIES_FOLDER_PATH,"resources/dictionaries");
+		if (DICTIONARIES_FOLDER != null)
+			Constants.setupDictionaries(DICTIONARIES_FOLDER);
+		
+		//FILENAME PROPERTIES
+		DEFAULT_FOLDER = synthegrateProperties.getProperty(Constants.OUTPUT_FOLDER, "resources/scenarios").trim();
+		PROFILE_FILE_NAME = synthegrateProperties.getProperty(Constants.PROFILE_DATA_FILENAME, "profiling_input.xml")
+				.trim();
+		DATASOURCE_FILE_NAME = synthegrateProperties.getProperty(Constants.DATASOURCE_FILENAME, "datasource.vada")
+				.trim();
+		MATCH_FILE_NAME = synthegrateProperties.getProperty(Constants.MATCHES_FILENAME, "match.vada").trim();
+		EXPECTED_SQL_MAPPING = synthegrateProperties
+				.getProperty(Constants.EXPECTED_MAPPING_FILENAME, "expected_mapping.sql").trim();
+		SOURCE_TARGET_PAIRS_FILE_NAME = synthegrateProperties
+				.getProperty(Constants.SOURCE_TARGET_PAIRS_FILENAME, "sourceTargetPairs.vada").trim();
+		SPICY_MAPTASK = synthegrateProperties.getProperty(Constants.SPICY_MAPTASK_FILENAME, "spicy_maptask.xml").trim();
+
+		
+		// DATABASE PROPERTIES
+		DATABASE_DRIVER = synthegrateProperties.getProperty(Constants.DATABASE_JDBC_DRIVER, "JDBC_POSTGRES").trim();
+		DATABASE_PREFIX = synthegrateProperties.getProperty(Constants.DATABASE_JDBC_PREFIX, "jdbc:postgresql://")
+				.trim();
+		DATABASE_NAME = synthegrateProperties.getProperty(Constants.DATABASE_NAME, "synthetic_db").trim();
+		DATABASE_LOCATION = synthegrateProperties.getProperty(Constants.DATABASE_LOCATION, "localhost").trim();
+		DATABASE_PORT = synthegrateProperties.getProperty(Constants.DATABASE_PORT, "5432").trim();
+		DATABASE_URL = DATABASE_LOCATION + ":" + DATABASE_PORT + "/" + DATABASE_NAME;
+		DATABASE_USERNAME = synthegrateProperties.getProperty(Constants.DATABASE_USER, "postgres").trim();
+		DATABASE_PASSWORD = synthegrateProperties.getProperty(Constants.DATABASE_PASSWORD, "postgres").trim();
+		
+		//SPICY PROPERTIES
+		DATABASE_URL_SPICY = DATABASE_LOCATION + ":" + DATABASE_PORT + "/" + DATABASE_NAME;
+		DATABASE_NAME_SPICY = DATABASE_NAME;
+
+	}
 
 	public static void write_scenario(ArrayList<DBSchema> source_dbSchemas, DBSchema target_dbSchema,
 			String folder_path, String scenario_name, ProfileData profileData, MappingNode root_node) {
 
-//		String file_path = folder_path + "/mto1_tests/run_files/scenario_" + scenario_name;
 		String file_path = folder_path + "/" + scenario_name;
 		File file = new File(file_path);
 		if (!file.exists()) {
@@ -62,38 +103,39 @@ public class WriteUtils {
 
 		write_profile_data_file(profileData, file_path);
 		System.out.println("[5 out of 12 file] Profile data file...");
-		
+
 		write_match_file(source_dbSchemas, file_path);
 		System.out.println("[6 out of 12 file] Match data file...");
-		
+
 		write_datasources_file(source_dbSchemas, target_dbSchema, file_path);
 		System.out.println("[7 out of 12 file] Datasource data file...");
-		
+
 		write_source_target_pairs(source_dbSchemas, target_dbSchema, file_path);
 		System.out.println("[8 out of 12 file] Source-target pairs data file...");
-		
-		write_expected_sql_query(root_node,file_path);
+
+		write_expected_sql_query(root_node, file_path);
 		System.out.println("[9 out of 12 file] Expected SQL file...");
-		
-		write_spicy_scenario(file_path, source_dbSchemas, target_dbSchema );
+
+		write_spicy_scenario(file_path, source_dbSchemas, target_dbSchema);
 		System.out.println("[12 out of 12 file] Spicy task files...");
 	}
-	
+
 	/***
 	 * Write in an SQL file the expected query (mapping).
 	 */
-	private static void write_expected_sql_query(MappingNode root_node,String file_path) {
-		
-		if (root_node==null)
+	private static void write_expected_sql_query(MappingNode root_node, String file_path) {
+
+		if (root_node == null)
 			return;
-				
+
 		BufferedWriter writer;
 		try {
-			
-			writer = new BufferedWriter(new FileWriter(file_path + "/" + Synthegrate.getUnionsJoinsString()+"_"+EXPECTED_SQL_MAPPING));
+
+			writer = new BufferedWriter(
+					new FileWriter(file_path + "/" + Synthegrate.getUnionsJoinsString() + "_" + EXPECTED_SQL_MAPPING));
 			writer.write("-- Final SQL mapping: \n");
 			writer.write(root_node.toString());
-			writer.write("\n/*"+root_node.getSimplifiedMapping(1)+"*/");
+			writer.write("\n/*" + root_node.getSimplifiedMapping(1) + "*/");
 			writer.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -101,7 +143,9 @@ public class WriteUtils {
 	}
 
 	/**
-	 * Write the file where it states where to find the input schema (database url, db driver)
+	 * Write the file where it states where to find the input schema (database url,
+	 * db driver)
+	 * 
 	 * @param dbSchemas
 	 * @param targetSchema
 	 * @param file_path
@@ -111,11 +155,13 @@ public class WriteUtils {
 			// Writer for datasource file
 			BufferedWriter writer;
 			writer = new BufferedWriter(new FileWriter(file_path + "/" + DATASOURCE_FILE_NAME));
-			writer.write("datasource("+targetSchema.getName()+","+DATABASE_URL+","+DATABASE_DRIVER+",null).\n");
-		
+			writer.write(
+					"datasource(" + targetSchema.getName() + "," + DATABASE_URL + "," + DATABASE_DRIVER + ",null).\n");
+
 			for (DBSchema schema : dbSchemas) {
 
-				writer.write("datasource("+schema.getName()+","+DATABASE_URL+","+DATABASE_DRIVER+",null).\n");
+				writer.write(
+						"datasource(" + schema.getName() + "," + DATABASE_URL + "," + DATABASE_DRIVER + ",null).\n");
 			}
 			writer.close();
 		} catch (IOException e) {
@@ -123,18 +169,18 @@ public class WriteUtils {
 			e.printStackTrace();
 		}
 
-
 	}
 
-	private static void write_source_target_pairs(ArrayList<DBSchema> dbSchemas, DBSchema targetSchema, String file_path){
+	private static void write_source_target_pairs(ArrayList<DBSchema> dbSchemas, DBSchema targetSchema,
+			String file_path) {
 		try {
 			// Writer for datasource file
 			BufferedWriter writer;
 			writer = new BufferedWriter(new FileWriter(file_path + "/" + SOURCE_TARGET_PAIRS_FILE_NAME));
-			
+
 			for (DBSchema schema : dbSchemas) {
 
-				writer.write("map_schemas("+schema.getName()+","+targetSchema.getName()+").\n");
+				writer.write("map_schemas(" + schema.getName() + "," + targetSchema.getName() + ").\n");
 			}
 			writer.close();
 		} catch (IOException e) {
@@ -143,7 +189,7 @@ public class WriteUtils {
 		}
 
 	}
-	
+
 	private static void write_match_file(ArrayList<DBSchema> dbSchemas, String folder_path) {
 
 		try {
@@ -154,21 +200,22 @@ public class WriteUtils {
 				ArrayList<Relation> relations = schema.getRelations();
 
 				if (relations.size() > 0) {
-					
-					for (Relation relation:relations){
+
+					for (Relation relation : relations) {
 						ArrayList<Attribute> attributes = relation.getAttributes();
-					
-						if (attributes==null||attributes.size()<1)
+
+						if (attributes == null || attributes.size() < 1)
 							continue;
-					
-						for (Attribute attribute:attributes){
-							
+
+						for (Attribute attribute : attributes) {
+
 							if (attribute.isTarget_attribute())
-								//the confidence is 1.0
-								writer.write("Match("+attribute.getFullName()+","+attribute.getMatched_target_attribute().getFullName()+",1.0).\n");
+								// the confidence is 1.0
+								writer.write("Match(" + attribute.getFullName() + ","
+										+ attribute.getMatched_target_attribute().getFullName() + ",1.0).\n");
 						}
 					}
-				
+
 				}
 			}
 			writer.close();
@@ -178,7 +225,6 @@ public class WriteUtils {
 			e.printStackTrace();
 		}
 
-		
 	}
 
 	private static void write_schema_sql_files(ArrayList<DBSchema> dbSchemas, String folder_path) {
@@ -213,13 +259,13 @@ public class WriteUtils {
 		}
 
 	}
-	
-	private static void write_datafiller_dictionaries(BufferedWriter dfwriter) throws IOException{
-		
-		for (Dictionary dictionary:Constants.dictionaries){
-			dfwriter.write("--df "+dictionary.name+": word=./dictionaries/"+dictionary.filename+" \n ");
+
+	private static void write_datafiller_dictionaries(BufferedWriter dfwriter) throws IOException {
+
+		File dictionaries_folder = new File(DICTIONARIES_FOLDER);
+		for (Dictionary dictionary : Constants.dictionaries) {
+			dfwriter.write("--df " + dictionary.name + ": word="+dictionaries_folder.getAbsolutePath()+"/" + dictionary.filename + " \n ");
 		}
-		
 	}
 
 	private static void write_schema(BufferedWriter writer, BufferedWriter dfwriter, DBSchema schema)
@@ -230,17 +276,17 @@ public class WriteUtils {
 		for (Relation relation : relations) {
 			write_relation_sql_without_constraints(writer, dfwriter, relation);
 			writer.flush();
-			//System.out.println("Written relation"+ relation.getNameWSchema());
+			// System.out.println("Written relation"+ relation.getNameWSchema());
 		}
-		
-		if (dfwriter!=null) {
+
+		if (dfwriter != null) {
 			System.out.println("Writing datafiller files ..");
 			for (Relation relation : relations) {
 				write_datafiller_sql_relation(dfwriter, relation);
 				dfwriter.flush();
 			}
 		}
-		
+
 		System.out.println("Writing schema constraints..");
 		for (Relation relation : relations) {
 			write_relation_constraints(writer, dfwriter, relation);
@@ -249,112 +295,11 @@ public class WriteUtils {
 
 	}
 
-	private static void write_relation_sql_without_constraints(BufferedWriter writer, BufferedWriter dfwriter, Relation relation) throws IOException {
+	private static void write_relation_sql_without_constraints(BufferedWriter writer, BufferedWriter dfwriter,
+			Relation relation) throws IOException {
 		if (!relation.isWritten() && relation.getParentSchema() != null) {
-			String create = "DROP TABLE IF EXISTS "+relation.getNameWSchema()+" CASCADE ;\n"+
-					"CREATE TABLE " + relation.getNameWSchema() + " (\n";
-					ArrayList<Attribute> attributes = relation.getAttributes();
-
-					for (int i = 0; i < attributes.size() - 1; i++) {
-						Attribute attribute = attributes.get(i);
-						create += attribute.getName() + " " + attribute.getType();
-						if (attribute.is_unique())
-							if (!attribute.is_primary_key())
-								create += " UNIQUE";
-						if (attribute.isNot_null())
-							create += " NOT NULL";
-
-						if (attribute.is_primary_key())
-							create += " PRIMARY KEY";
-						
-						create += ", ";
-						if (attribute.isTarget_attribute())
-							create += "-- target attribute = "+attribute.getMatched_target_attribute().getNameWRelation();
-						create += "\n";
-
-					}
-					Attribute last_attribute = attributes.get(attributes.size() - 1);
-					create += last_attribute.getName() + " "
-							+ last_attribute.getType();
-					if (last_attribute.is_unique())
-						if (last_attribute.is_primary_key())
-							create += " UNIQUE";
-					
-					if (last_attribute.isNot_null())
-						create += " NOT NULL";
-					
-					if (last_attribute.is_primary_key())
-						create += " PRIMARY KEY";
-					
-					if (last_attribute.is_foreign_key())
-						create += " REFERENCES " + last_attribute.getPrimary_key_attribute().getParentRelation().getNameWSchema()
-								+ "(" + last_attribute.getPrimary_key_attribute().getName() + ")";
-					
-					if (last_attribute.isTarget_attribute())
-						create += "-- target attribute = "+last_attribute.getMatched_target_attribute().getNameWRelation()+"\n";
-					
-					create += ");\n\n";
-
-					writer.write(create);
-					relation.setWritten(true);
-		}
-		
-		
-	}
-	
-	private static void write_relation_constraints(BufferedWriter writer, BufferedWriter dfwriter, Relation relation) throws IOException {
-		
-		
-		if (!relation.isWritten())
-			return;
-		
-		String create = "";
-		int fk_count = 0;
-		
-		ArrayList<Attribute> attributes = relation.getAttributes();
-		
-		for (int i = 0; i < attributes.size() - 1; i++) {
-			Attribute attribute = attributes.get(i);
-			fk_count++;
-			
-		if (attribute.is_foreign_key())
-			create += "\n\nADD CONSTRAINT FK"+fk_count+"_"+attribute.getName()+"_"+attribute.getPrimary_key_attribute().getName()
-			+"FOREIGN KEY ("+attribute.getName()+")\n"
-			+"REFERENCES " + attribute.getPrimary_key_attribute().getParentRelation().getNameWSchema()
-					+ "(" + attribute.getPrimary_key_attribute().getName() + ") MATCH SIMPLE\n"
-					+"    ON UPDATE NO ACTION\n"  
-					+"    ON DELETE NO ACTION;";
-		}
-		writer.write(create);
-	}
-	
-	@SuppressWarnings("unused")
-	private static void write_relation_sql(BufferedWriter writer, BufferedWriter dfwriter, Relation relation)
-			throws IOException {
-
-		if (!relation.isWritten() && relation.getParentSchema() != null) {
-			if (relation.containsFK()) {
-				ArrayList<Attribute> fks = relation.getFKs();
-				for (Attribute fk : fks) {
-					/*
-					 * we need to write the PK relations first so that we don't
-					 * get an invalid SQL file - can't reference something that
-					 * doesn't exist
-					 */
-					Relation pk_relation = fk.getPrimary_key_attribute().getParentRelation();
-					write_relation_sql(writer, dfwriter, pk_relation);
-
-				}
-			}
-			/*
-			 * After writing all the tables referenced by this relation, we can
-			 * write it.
-			 */
-			
-			write_datafiller_sql_relation(dfwriter, relation);
-
-			String create = "DROP TABLE IF EXISTS "+relation.getNameWSchema()+" CASCADE ;\n"+
-			"CREATE TABLE " + relation.getNameWSchema() + " (\n";
+			String create = "DROP TABLE IF EXISTS " + relation.getNameWSchema() + " CASCADE ;\n" + "CREATE TABLE "
+					+ relation.getNameWSchema() + " (\n";
 			ArrayList<Attribute> attributes = relation.getAttributes();
 
 			for (int i = 0; i < attributes.size() - 1; i++) {
@@ -368,37 +313,137 @@ public class WriteUtils {
 
 				if (attribute.is_primary_key())
 					create += " PRIMARY KEY";
-				
+
+				create += ", ";
+				if (attribute.isTarget_attribute())
+					create += "-- target attribute = " + attribute.getMatched_target_attribute().getNameWRelation();
+				create += "\n";
+
+			}
+			Attribute last_attribute = attributes.get(attributes.size() - 1);
+			create += last_attribute.getName() + " " + last_attribute.getType();
+			if (last_attribute.is_unique())
+				if (last_attribute.is_primary_key())
+					create += " UNIQUE";
+
+			if (last_attribute.isNot_null())
+				create += " NOT NULL";
+
+			if (last_attribute.is_primary_key())
+				create += " PRIMARY KEY";
+
+			if (last_attribute.is_foreign_key())
+				create += " REFERENCES "
+						+ last_attribute.getPrimary_key_attribute().getParentRelation().getNameWSchema() + "("
+						+ last_attribute.getPrimary_key_attribute().getName() + ")";
+
+			if (last_attribute.isTarget_attribute())
+				create += "-- target attribute = " + last_attribute.getMatched_target_attribute().getNameWRelation()
+						+ "\n";
+
+			create += ");\n\n";
+
+			writer.write(create);
+			relation.setWritten(true);
+		}
+
+	}
+
+	private static void write_relation_constraints(BufferedWriter writer, BufferedWriter dfwriter, Relation relation)
+			throws IOException {
+
+		if (!relation.isWritten())
+			return;
+
+		String create = "";
+		int fk_count = 0;
+
+		ArrayList<Attribute> attributes = relation.getAttributes();
+
+		for (int i = 0; i < attributes.size() - 1; i++) {
+			Attribute attribute = attributes.get(i);
+			fk_count++;
+
+			if (attribute.is_foreign_key())
+				create += "\n\nADD CONSTRAINT FK" + fk_count + "_" + attribute.getName() + "_"
+						+ attribute.getPrimary_key_attribute().getName() + " FOREIGN KEY (" + attribute.getName() + ")\n"
+						+ " REFERENCES " + attribute.getPrimary_key_attribute().getParentRelation().getNameWSchema()
+						+ " (" + attribute.getPrimary_key_attribute().getName() + ") MATCH SIMPLE\n"
+						+ "    ON UPDATE NO ACTION\n" + "    ON DELETE NO ACTION;";
+		}
+		writer.write(create);
+	}
+
+	@SuppressWarnings("unused")
+	private static void write_relation_sql(BufferedWriter writer, BufferedWriter dfwriter, Relation relation)
+			throws IOException {
+
+		if (!relation.isWritten() && relation.getParentSchema() != null) {
+			if (relation.containsFK()) {
+				ArrayList<Attribute> fks = relation.getFKs();
+				for (Attribute fk : fks) {
+					/*
+					 * we need to write the PK relations first so that we don't get an invalid SQL
+					 * file - can't reference something that doesn't exist
+					 */
+					Relation pk_relation = fk.getPrimary_key_attribute().getParentRelation();
+					write_relation_sql(writer, dfwriter, pk_relation);
+
+				}
+			}
+			/*
+			 * After writing all the tables referenced by this relation, we can write it.
+			 */
+
+			write_datafiller_sql_relation(dfwriter, relation);
+
+			String create = "DROP TABLE IF EXISTS " + relation.getNameWSchema() + " CASCADE ;\n" + "CREATE TABLE "
+					+ relation.getNameWSchema() + " (\n";
+			ArrayList<Attribute> attributes = relation.getAttributes();
+
+			for (int i = 0; i < attributes.size() - 1; i++) {
+				Attribute attribute = attributes.get(i);
+				create += attribute.getName() + " " + attribute.getType();
+				if (attribute.is_unique())
+					if (!attribute.is_primary_key())
+						create += " UNIQUE";
+				if (attribute.isNot_null())
+					create += " NOT NULL";
+
+				if (attribute.is_primary_key())
+					create += " PRIMARY KEY";
+
 				if (attribute.is_foreign_key())
 					create += " REFERENCES " + attribute.getPrimary_key_attribute().getParentRelation().getNameWSchema()
 							+ "(" + attribute.getPrimary_key_attribute().getName() + ")";
 				create += ", ";
 				if (attribute.isTarget_attribute())
-					create += "-- target attribute = "+attribute.getMatched_target_attribute().getNameWRelation();
+					create += "-- target attribute = " + attribute.getMatched_target_attribute().getNameWRelation();
 				create += "\n";
 
 			}
-			
+
 			Attribute last_attribute = attributes.get(attributes.size() - 1);
-			create += last_attribute.getName() + " "
-					+ last_attribute.getType();
+			create += last_attribute.getName() + " " + last_attribute.getType();
 			if (last_attribute.is_unique())
 				if (last_attribute.is_primary_key())
 					create += " UNIQUE";
-			
+
 			if (last_attribute.isNot_null())
 				create += " NOT NULL";
-			
+
 			if (last_attribute.is_primary_key())
 				create += " PRIMARY KEY";
-			
+
 			if (last_attribute.is_foreign_key())
-				create += " REFERENCES " + last_attribute.getPrimary_key_attribute().getParentRelation().getNameWSchema()
-						+ "(" + last_attribute.getPrimary_key_attribute().getName() + ")";
-			
+				create += " REFERENCES "
+						+ last_attribute.getPrimary_key_attribute().getParentRelation().getNameWSchema() + "("
+						+ last_attribute.getPrimary_key_attribute().getName() + ")";
+
 			if (last_attribute.isTarget_attribute())
-				create += "-- target attribute = "+last_attribute.getMatched_target_attribute().getNameWRelation()+"\n";
-			
+				create += "-- target attribute = " + last_attribute.getMatched_target_attribute().getNameWRelation()
+						+ "\n";
+
 			create += ");\n\n";
 
 			writer.write(create);
@@ -408,9 +453,10 @@ public class WriteUtils {
 	}
 
 	static ArrayList<String> prefixes = new ArrayList<>();
+
 	private static void write_datafiller_sql_relation(BufferedWriter writer, Relation relation) throws IOException {
-		
-		if (writer==null) {
+
+		if (writer == null) {
 			return;
 		}
 		String create = "";
@@ -418,53 +464,55 @@ public class WriteUtils {
 				: relation.getCardinality());
 		create += "CREATE TABLE " + relation.getNameWSchema() + " ( --df: size=" + cardinality + " \n";
 		ArrayList<Attribute> attributes = relation.getAttributes();
-		
+
 		for (int i = 0; i < attributes.size() - 1; i++) {
 			Attribute attribute = attributes.get(i);
-			
+
 			create += attribute.getName() + " " + attribute.getType();
 			create += " UNIQUE";
 			create += " NOT NULL";
-			
+
 			create += ",";
 			if (attribute.getParameters() != null)
-				create += "--df: use="+attribute.getParameters().getDictionary().name+" offset=" + attribute.getParameters().getOffset() + " step="
-						+ attribute.getParameters().getStep() + " shift=" + attribute.getParameters().getShift()
-						+ " size=" + attribute.getParameters().getSize();
+				create += "--df: use=" + attribute.getParameters().getDictionary().name + " offset="
+						+ attribute.getParameters().getOffset() + " step=" + attribute.getParameters().getStep()
+						+ " shift=" + attribute.getParameters().getShift() + " size="
+						+ attribute.getParameters().getSize();
 			else {
 				String prefix = Utils.generateRandomString(10);
 				while (prefixes.contains(prefix))
 					prefix = Utils.generateRandomString(10);
 				prefixes.add(prefix);
-				create +="--df: prefix="+ prefix;
+				create += "--df: prefix=" + prefix;
 			}
 			create += "\n";
-			
+
 		}
-		
+
 		Attribute last_attribute = attributes.get(attributes.size() - 1);
 		create += last_attribute.getName() + " " + last_attribute.getType();
 		create += " UNIQUE";
 		create += " NOT NULL";
 		if (last_attribute.getParameters() != null)
-			create += "--df: use="+last_attribute.getParameters().getDictionary().name+" offset=" + last_attribute.getParameters().getOffset() + " step="
-					+ last_attribute.getParameters().getStep() + " shift=" + last_attribute.getParameters().getShift()
-					+ " size=" + last_attribute.getParameters().getSize() + "\n";
-		else{
+			create += "--df: use=" + last_attribute.getParameters().getDictionary().name + " offset="
+					+ last_attribute.getParameters().getOffset() + " step=" + last_attribute.getParameters().getStep()
+					+ " shift=" + last_attribute.getParameters().getShift() + " size="
+					+ last_attribute.getParameters().getSize() + "\n";
+		else {
 			String prefix = Utils.generateRandomString(2);
 			while (prefixes.contains(prefix))
 				prefix = Utils.generateRandomString(2);
 			prefixes.add(prefix);
-			create +="--df: prefix="+ prefix;
+			create += "--df: prefix=" + prefix;
 		}
 		create += "\n);\n\n";
-		
+
 		writer.write(create);
 	}
 
 	private static void write_profile_data_file(ProfileData profileData, String folder_path) {
-		System.out.println("Writing "+profileData.getInds().size()+" inclusion dependencies\n");
-		System.out.println("Writing "+profileData.getKeys().size()+" candiate keys \n");
+		System.out.println("Writing " + profileData.getInds().size() + " inclusion dependencies\n");
+		System.out.println("Writing " + profileData.getKeys().size() + " candiate keys \n");
 		BufferedWriter writer;
 		try {
 			writer = new BufferedWriter(new FileWriter(folder_path + "/" + PROFILE_FILE_NAME));
@@ -489,34 +537,36 @@ public class WriteUtils {
 
 	private static void writeINDs(BufferedWriter writer, ArrayList<InclusionDependency> inds) throws IOException {
 		writer.write("\t<inclusion-dependencies>\n");
-		
-		for (InclusionDependency ind:inds){
+
+		for (InclusionDependency ind : inds) {
 			writer.write("\t\t<inclusion-dependency>\n");
 			if (ind.is_distraction())
 				writer.write("\t\t\t<!-- DISTRACTION  -->\n");
-			//is-included
-			writer.write("\t\t\t<is-included distinct_values = \""+ ind.getIncluded_distinct_values()+"\">\n");
-			writer.write("\t\t\t\t<attribute schema = \""+ind.getIncludedAttribute().getParentRelation().getParentSchema().getName()
-					+"\" relation = \""+ind.getIncludedAttribute().getParentRelation().getName()
-					+"\" name = \""+ ind.getIncludedAttribute().getName() +"\"/>\n");
+			// is-included
+			writer.write("\t\t\t<is-included distinct_values = \"" + ind.getIncluded_distinct_values() + "\">\n");
+			writer.write("\t\t\t\t<attribute schema = \""
+					+ ind.getIncludedAttribute().getParentRelation().getParentSchema().getName() + "\" relation = \""
+					+ ind.getIncludedAttribute().getParentRelation().getName() + "\" name = \""
+					+ ind.getIncludedAttribute().getName() + "\"/>\n");
 			writer.write("\t\t\t</is-included>\n");
-			
-			//includes
+
+			// includes
 			writer.write("\t\t\t<includes>\n");
-			writer.write("\t\t\t\t<attribute schema = \""+ind.getIncludingAttribute().getParentRelation().getParentSchema().getName()
-					+"\" relation =\""+ind.getIncludingAttribute().getParentRelation().getName()
-					+"\" name = \""+ ind.getIncludingAttribute().getName() +"\"/>\n");
+			writer.write("\t\t\t\t<attribute schema = \""
+					+ ind.getIncludingAttribute().getParentRelation().getParentSchema().getName() + "\" relation =\""
+					+ ind.getIncludingAttribute().getParentRelation().getName() + "\" name = \""
+					+ ind.getIncludingAttribute().getName() + "\"/>\n");
 			writer.write("\t\t\t</includes>\n");
-			
-			//coefficient
-			writer.write("\t\t\t<coefficient value = \""+ind.getCoefficient()+"\"></coefficient>\n");
-			
+
+			// coefficient
+			writer.write("\t\t\t<coefficient value = \"" + ind.getCoefficient() + "\"></coefficient>\n");
+
 			writer.write("\t\t</inclusion-dependency>\n");
-		
+
 		}
-		
+
 		writer.write("\t</inclusion-dependencies>");
-		
+
 	}
 
 	private static void writeCandidateKeys(BufferedWriter writer, ArrayList<KeyConstraint> keys) throws IOException {
@@ -526,14 +576,15 @@ public class WriteUtils {
 			System.out.println(key.toString());
 			if (key.getKeyAttributes().size() == 1) {
 				writer.write("\t\t<attribute schema = \""
-						+ key.getKeyAttributes().get(0).getParentRelation().getParentSchema().getName() + "\" relation = \""
-						+ key.getKeyAttributes().get(0).getParentRelation().getName() + "\" name = \""
-						+ key.getKeyAttributes().get(0).getName() + "\"/>\n");
+						+ key.getKeyAttributes().get(0).getParentRelation().getParentSchema().getName()
+						+ "\" relation = \"" + key.getKeyAttributes().get(0).getParentRelation().getName()
+						+ "\" name = \"" + key.getKeyAttributes().get(0).getName() + "\"/>\n");
 			} else {
 				writer.write("\t\t<multiple>\n");
 				for (Attribute a : key.getKeyAttributes()) {
 					writer.write("\t\t<attribute schema = \"" + a.getParentRelation().getParentSchema().getName()
-							+ "\" relation = \"" + a.getParentRelation().getName() + "\" name = \"" + a.getName() + "\"/>\n");
+							+ "\" relation = \"" + a.getParentRelation().getName() + "\" name = \"" + a.getName()
+							+ "\"/>\n");
 				}
 				writer.write("\t\t</multiple>\n");
 			}
@@ -542,14 +593,14 @@ public class WriteUtils {
 		writer.write("\t</keyCandidates>\n");
 	}
 
-	public static void write_distraction (String distraction_string,String folder_path, String scenario_name){
-		
+	public static void write_distraction(String distraction_string, String folder_path, String scenario_name) {
+
 		String file_path = DEFAULT_FOLDER;
-//		if (folder_path==null||scenario_name==null)
-//			file_path = DEFAULT_FOLDER;
-//		else
-//			file_path = folder_path + "/" + scenario_name;
-		
+		// if (folder_path==null||scenario_name==null)
+		// file_path = DEFAULT_FOLDER;
+		// else
+		// file_path = folder_path + "/" + scenario_name;
+
 		File file = new File(file_path);
 		if (!file.exists()) {
 			if (file.mkdirs()) {
@@ -558,13 +609,12 @@ public class WriteUtils {
 				System.out.println("Failed to create " + file_path + " directory!");
 			}
 		}
-		
-		
+
 		try {
-			BufferedWriter writer = new BufferedWriter(new FileWriter(file_path + "/d_"+ DISTRACTION_FILE_NAME));
-			
-			writer.append(distraction_string+"\n");
-			
+			BufferedWriter writer = new BufferedWriter(new FileWriter(file_path + "/d_" + DISTRACTION_FILE_NAME));
+
+			writer.append(distraction_string + "\n");
+
 			writer.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -572,21 +622,20 @@ public class WriteUtils {
 		}
 
 	}
-	
+
 	public static void write_headers(String output_file_path, String toWrite, boolean ifAppend) {
-		
-		if (output_file_path==null)
+
+		if (output_file_path == null)
 			return;
-		
+
 		BufferedWriter bw = null;
 		FileWriter fw = null;
-		
 
 		try {
 
-			fw = new FileWriter(output_file_path,ifAppend);
+			fw = new FileWriter(output_file_path, ifAppend);
 			bw = new BufferedWriter(fw);
-			bw.write(toWrite+"\n");
+			bw.write(toWrite + "\n");
 			bw.flush();
 
 		} catch (IOException e) {
@@ -605,21 +654,21 @@ public class WriteUtils {
 			}
 		}
 	}
-	
-    public static void write_plot_headers(String output_file_path, String toWrite, boolean ifAppend) {
-		
-		if (output_file_path==null)
+
+	public static void write_plot_headers(String output_file_path, String toWrite, boolean ifAppend) {
+
+		if (output_file_path == null)
 			return;
-		
-		String plot_file = output_file_path+"_plot.csv";
-		
+
+		String plot_file = output_file_path + "_plot.csv";
+
 		BufferedWriter bw_plot = null;
 		FileWriter fw_plot = null;
 
 		try {
-			fw_plot = new FileWriter(plot_file,ifAppend);
+			fw_plot = new FileWriter(plot_file, ifAppend);
 			bw_plot = new BufferedWriter(fw_plot);
-			bw_plot.write(toWrite+"\n");
+			bw_plot.write(toWrite + "\n");
 			bw_plot.flush();
 
 		} catch (IOException e) {
@@ -638,9 +687,10 @@ public class WriteUtils {
 			}
 		}
 	}
-	
+
 	/**
-	 * The maptask looks only in the public schema.
+	 * The Spicy maptask looks only in the public schema (that's how spicy is configured) so if the mapping task contains different schemas for mapping, the same tables need to be created in public schema for Spicy.
+	 * 
 	 * @param output_file_path
 	 * @param dbSchemas
 	 * @param target_dbSchema
@@ -648,8 +698,7 @@ public class WriteUtils {
 	public static void write_spicy_scenario(String output_file_path, ArrayList<DBSchema> dbSchemas,
 			DBSchema target_dbSchema) {
 
-		// Spicy cannot handle more than 1 source schema and there is no point in
-		// creating the maptask if there are no source schemas
+		// There is no point in creating the maptask if there are no source schemas or more than 1.
 		if (dbSchemas.size() > 1 || dbSchemas.size() == 0) {
 			System.out.println("Spicy files were not created because the number source schemas is 0 or > 1.");
 			return;
@@ -661,64 +710,52 @@ public class WriteUtils {
 			BufferedWriter writer;
 			writer = new BufferedWriter(new FileWriter(output_file_path + "/" + SPICY_MAPTASK));
 			writer.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
-			writer.write("<mappingtask>\n" 
-					+ "  <config>\n" 
-					+ " <rewriteSubsumptions>true</rewriteSubsumptions>\n"
+			writer.write("<mappingtask>\n" + "  <config>\n" + " <rewriteSubsumptions>true</rewriteSubsumptions>\n"
 					+ "    <rewriteCoverages>true</rewriteCoverages>\n"
-					+ "    <rewriteSelfJoins>true</rewriteSelfJoins>\n" 
-					+ "    <rewriteEGDs>true</rewriteEGDs>\n"
-					+ "    <sortStrategy>-1</sortStrategy>\n" 
-					+ "    <skolemTableStrategy>-1</skolemTableStrategy>\n"
-					+ "    <useLocalSkolem>false</useLocalSkolem>\n" 
-					+ "  </config>\n" 
-					+ "  <source>\n"
-					+ "    <type>relational</type>\n" 
-					+ "    <relational>\n"
-					+ "      <driver>org.postgresql.Driver</driver>\n" 
-					+ " <uri>" + DATABASE_PREFIX + DATABASE_URL
-					+ "</uri>\n" + " <login>lara</login>\n" + " <password>postgres</password> \n" + " </relational>\n"
-					+ "    <inclusions />\n" 
-					+ "    <exclusions />\n" 
-					+ "    <duplications />\n"
-					+ "    <functionalDependencies />\n" 
-					+ "    <selectionConditions />\n" );
-			
+					+ "    <rewriteSelfJoins>true</rewriteSelfJoins>\n" + "    <rewriteEGDs>true</rewriteEGDs>\n"
+					+ "    <sortStrategy>-1</sortStrategy>\n" + "    <skolemTableStrategy>-1</skolemTableStrategy>\n"
+					+ "    <useLocalSkolem>false</useLocalSkolem>\n" + "  </config>\n" + "  <source>\n"
+					+ "    <type>relational</type>\n" + "    <relational>\n"
+					+ "      <driver>org.postgresql.Driver</driver>\n" + " <uri>" + DATABASE_PREFIX + DATABASE_URL
+					+ "</uri>\n" + " <login>" + DATABASE_USERNAME + "</login>\n" + " <password>" + DATABASE_PASSWORD
+					+ "</password> \n" + " </relational>\n" + "    <inclusions />\n" + "    <exclusions />\n"
+					+ "    <duplications />\n" + "    <functionalDependencies />\n" + "    <selectionConditions />\n");
+
 			String joinConditions = " <joinConditions>\n";
-			for (Relation relation:relations) {
+			for (Relation relation : relations) {
 				ArrayList<Attribute> fks = relation.getFKs();
-				
-				for (Attribute a: fks) {
+
+				for (Attribute a : fks) {
 					Attribute referencedAttribute = a.getPrimary_key_attribute();
-					joinConditions+= " <joinCondition>\n";
-					joinConditions+= " <join>\n";
-					joinConditions+= "<from>"+DATABASE_NAME+"."+relation.getName()+"."+relation.getName()+"Tuple."+a.getName()+"</from>\n";
-					joinConditions+= "<to>"+DATABASE_NAME+"."+referencedAttribute.getParentRelation().getName()
-							+"."+referencedAttribute.getParentRelation().getName()+"Tuple."
-							+referencedAttribute.getName()+"</to>\n"
-							+"</join>";
-					joinConditions+= " <foreignKey>true</foreignKey>\n";
-					joinConditions+= "  <mandatory>false</mandatory>\n";
-					joinConditions+= "</joinCondition>\n";
+					joinConditions += " <joinCondition>\n";
+					joinConditions += " <join>\n";
+					joinConditions += "<from>" + DATABASE_NAME + "." + relation.getName() + "." + relation.getName()
+							+ "Tuple." + a.getName() + "</from>\n";
+					joinConditions += "<to>" + DATABASE_NAME + "." + referencedAttribute.getParentRelation().getName()
+							+ "." + referencedAttribute.getParentRelation().getName() + "Tuple."
+							+ referencedAttribute.getName() + "</to>\n" + "</join>";
+					joinConditions += " <foreignKey>true</foreignKey>\n";
+					joinConditions += "  <mandatory>false</mandatory>\n";
+					joinConditions += "</joinCondition>\n";
 				}
-				
+
 			}
 			joinConditions += " </joinConditions>\n";
-			writer.write( joinConditions);
-					writer.write( 
-							"  </source> \n" + " <target>\n" + "    <type>relational</type>\n" + "    <relational>\n"
+			writer.write(joinConditions);
+			writer.write("  </source> \n" + " <target>\n" + "    <type>relational</type>\n" + "    <relational>\n"
 					+ "      <driver>org.postgresql.Driver</driver>\n" + "      <uri> " + DATABASE_PREFIX
-					+ DATABASE_URL_SPICY + "</uri>\n" + " <login>lara</login>\n"
-					+ "      <password>postgres</password>\n" + "    </relational>\n" + "    <inclusions />\n"
-					+ "    <exclusions />\n" + "    <duplications />\n" + "    <functionalDependencies />\n"
-					+ "    <selectionConditions />\n" + "    <joinConditions />\n" + "  </target> \n");
+					+ DATABASE_URL_SPICY + "</uri>\n" + " <login>" + DATABASE_USERNAME + "</login>\n"
+					+ "      <password>" + DATABASE_PASSWORD + "</password>\n" + "    </relational>\n"
+					+ "    <inclusions />\n" + "    <exclusions />\n" + "    <duplications />\n"
+					+ "    <functionalDependencies />\n" + "    <selectionConditions />\n" + "    <joinConditions />\n"
+					+ "  </target> \n");
 
 			writer.write("<correspondences>\n");
-			
 
 			if (relations.size() > 0) {
 
 				for (Relation relation : relations) {
-					
+
 					ArrayList<Attribute> attributes = relation.getAttributes();
 
 					if (attributes == null || attributes.size() < 1)
@@ -739,14 +776,15 @@ public class WriteUtils {
 			writer.write("</mappingtask>");
 			writer.flush();
 			writer.close();
-			
-			write_spicy_target_sql(output_file_path,target_dbSchema);
-			write_spicy_source_sql(output_file_path,source_schema);
-			
-			SPICY_MAPPING = Synthegrate.getUnionsJoinsString()+"_spicy_mapping.sql";
+
+			write_spicy_target_sql(output_file_path, target_dbSchema);
+			write_spicy_source_sql(output_file_path, source_schema);
+
+			SPICY_MAPPING = Synthegrate.getUnionsJoinsString() + "_"+SPICY_MAPPING;
 			writer = new BufferedWriter(new FileWriter(output_file_path + "/" + SPICY_MAPPING));
-			writer.write("SELECT "+String.join(",", target_dbSchema.getRelations().get(0).getAttributeNames())
-				 		+" FROM "+target_dbSchema.getName()+"."+target_dbSchema.getRelations().get(0).getName());
+			writer.write("-- After ++Spicy is run and the generated mapping is run manually to populate this target, then, in order to evaluate the output, a simple select is enough.\n");
+			writer.write("SELECT " + String.join(",", target_dbSchema.getRelations().get(0).getAttributeNames())
+					+ " FROM " + target_dbSchema.getName() + "." + target_dbSchema.getRelations().get(0).getName());
 			writer.flush();
 			writer.close();
 
@@ -759,13 +797,21 @@ public class WriteUtils {
 
 	private static void write_spicy_source_sql(String output_file_path, DBSchema source_schema) {
 		try {
-			BufferedWriter writer;
-			writer = new BufferedWriter(new FileWriter(output_file_path + "/"+source_schema.getName()+"_spicy_source.sql"));
+			BufferedWriter writer, dfwriter;
+			writer = new BufferedWriter(
+					new FileWriter(output_file_path + "/" + source_schema.getName() + "_spicy_source.sql"));
 			source_schema.setRelationsWritten(false);
 			source_schema.setName("public");
-			write_schema(writer, null, source_schema);
+			dfwriter = new BufferedWriter(
+					new FileWriter(output_file_path + "/datafiller_" + source_schema.getName() + "_spicy_source.sql"));
+			writer.write("CREATE SCHEMA IF NOT EXISTS public; \n");
+			write_datafiller_dictionaries(dfwriter);
+			write_schema(writer, dfwriter, source_schema);
 			
+			writer.flush();
+			dfwriter.flush();
 			writer.close();
+			dfwriter.close();
 
 		} catch (IOException e) {
 			System.err.println("Error writing Spicy source sql file!");
@@ -776,25 +822,27 @@ public class WriteUtils {
 	private static void write_spicy_target_sql(String output_file_path, DBSchema target_dbSchema) {
 		try {
 			BufferedWriter writer;
+//			writer = new BufferedWriter(
+//					new FileWriter(output_file_path + "/" + target_dbSchema.getName() + "_spicy_target.sql"));
+//			target_dbSchema.setRelationsWritten(false);
+//			target_dbSchema.setName("target");
+//			write_schema(writer, null, target_dbSchema);
+//			writer.flush();
+//			writer.close();
+
 			writer = new BufferedWriter(new FileWriter(output_file_path + "/"+target_dbSchema.getName()+"_spicy_target.sql"));
 			target_dbSchema.setRelationsWritten(false);
-			target_dbSchema.setName("target");
-			write_schema(writer, null, target_dbSchema);
-			writer.flush();
-			writer.close();
-			
-			writer = new BufferedWriter(new FileWriter(output_file_path + "/spicy_target_public_schema.sql"));
-			target_dbSchema.setRelationsWritten(false);
 			target_dbSchema.setName("public");
+			writer.write("CREATE SCHEMA IF NOT EXISTS "+target_dbSchema.getName()+"; \n");
 			write_schema(writer, null, target_dbSchema);
 			writer.flush();
 			writer.close();
-			
+
 		} catch (IOException e) {
 			System.err.println("Error writing Spicy target sql files!");
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	private static void write_spicy_correspondence(BufferedWriter writer, String source_relation,
@@ -816,7 +864,7 @@ public class WriteUtils {
 		writer.flush();
 
 	}
-	
+
 	public static String getSpicyMappingSQL() {
 		return SPICY_MAPPING;
 	}

@@ -629,13 +629,9 @@ public class ScenarioGenerator {
 		// the cardinal of the result will always be the same as the cardinal of
 		// the FK relation
 		fk_relation.setCardinality(extended_relation.getCardinality());
-		System.out.println("here11");
 		if (siblingNode!=null&&siblingNode.operation.equals(Constants.JOIN_OPERATION)) {
-			System.out.println("here1");
 			pk_relation.setCardinality(Utils.get_random_index_range(fk_relation.getCardinality(), siblingNode.getRelation().getCardinality(), true));
-			System.out.println("here2");
 		}
-		System.out.println("here12");
 		if (generateFK) {
 			// add the relations to the same source schema as we need the
 			// explicit FK relationship

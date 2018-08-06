@@ -18,6 +18,7 @@ import org.apache.commons.cli.ParseException;
 
 import uk.ac.man.synthegrate.utils.Constants;
 import uk.ac.man.synthegrate.utils.Utils;
+import uk.ac.man.synthegrate.utils.WriteUtils;
 
 public class Synthegrate {
 	
@@ -50,6 +51,7 @@ public class Synthegrate {
 	static boolean balanced_join = false;
 	
 	static String output_folder = "";
+	
 	
 	
 	public static void main(String[] args) {
@@ -118,10 +120,7 @@ public class Synthegrate {
 			System.exit(1);
 		}
 
-
-		String tmp_string = synthegrateProperties.getProperty(Constants.DICTIONARIES_FOLDER_PATH);
-		if (tmp_string != null)
-			Constants.setupDictionaries(tmp_string);
+		String tmp_string ="";
 
 		tmp_string = synthegrateProperties.getProperty(Constants.OUTPUT_FOLDER);
 		if (tmp_string != null) {
@@ -159,8 +158,9 @@ public class Synthegrate {
 		balanced_join = Boolean.parseBoolean(synthegrateProperties.getProperty(Constants.BALANCED_JOIN_TYPE,"false").trim());
 
 		/*
-		 * DATABASE PROPERTIES
+		 * DATABASE PROPERTIES & OUTPUT FILES 
 		 */
+		WriteUtils.set_properties(synthegrateProperties);
 		
 	}
 

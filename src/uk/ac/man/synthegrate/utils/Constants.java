@@ -23,7 +23,14 @@ public class Constants {
 	
 	public static ArrayList<Dictionary> dictionaries =  new ArrayList<>();
 	
+	/***** OUTPUT FILES ****/
 	public static String OUTPUT_FOLDER ="output.folder";
+	public static String PROFILE_DATA_FILENAME = "output.profile";
+	public static String MATCHES_FILENAME = "output.match";
+	public static String DATASOURCE_FILENAME = "output.sources";
+	public static String SOURCE_TARGET_PAIRS_FILENAME = "output.source_target";
+	public static String EXPECTED_MAPPING_FILENAME = "output.expected_mapping";
+	public static String SPICY_MAPTASK_FILENAME = "output.spicy_maptask";
 	
 	/***** SCENARIO PROPERTIES ****/
 	public static final String MAX_SOURCE_SCHEMAS_NUMBER = "scenario.schemas_number";
@@ -43,10 +50,12 @@ public class Constants {
 	public static final String CREATE_UNIONS_FIRST = "scenario.create_unions_first";
 	public static final String CREATE_JOINS_FIRST = "scenario.create_joins_first";
 
+	//JOIN TYPES
 	public static final String STAR_JOIN_TYPE = "scenario.star_join";
 	public static final String CHAIN_JOIN_TYPE = "scenario.chain_join";
 	public static final String BALANCED_JOIN_TYPE = "scenario.balanced_join";
 	
+	//DICTIONARIES FOR POPULATING THE TUPLES
 	public static final String DICTIONARIES_FOLDER_PATH = "input.dictionaries_folder";
 	
 	/***** DATABASE PROPERTIES ****/
