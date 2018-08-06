@@ -3,7 +3,7 @@
 Synthegrate is a tool that can be used to generate integration scenarios with synthetic data. It was created with the purpose of evaluating mapping generation algorithms, but it can be used in various kinds of integration tests.
 
 ## Getting Started
-To run Synthegrate, you can simply download Synthegrate.jar and synthegrate.properties files.
+To run Synthegrate, you can simply download the files in the *runnable_jar* folder which containst the JAR file and the util files that are needed to create the schemas and populate them with instances using [Datafiller](https://www.cri.ensmp.fr/people/coelho/datafiller.html).
 
 ### Prerequisites
 
@@ -24,7 +24,7 @@ To run Synthegrate, you can simply download Synthegrate.jar and synthegrate.prop
   1. create the postgres database. Note: the name needs to be the same as the one set in the properties file (`database.name` parameter). 
   2. in the parent folder of the generated scenario folder run: 
 
-  ```$ ./create_db_schemas \<database_name\>``` 
+  ```$ ./create_db_schemas <database_name>``` 
 
 Note: Make sure that all the files in **runnable_jar/to_materialize** folder are in the same folder as the scenario **folder**.
 E.g.
