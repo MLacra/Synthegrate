@@ -1,9 +1,9 @@
 # Synthegrate
 
-Synthegrate is a tool that can be used to generate integration scenarios with synthetic data. It was created with the purpose of evaluating mapping generation algorithms, but it can be used in various kinds of integration tests.
+**Synthegrate** is a tool that can be used to generate integration scenarios with synthetic data. It was created with the purpose of evaluating mapping generation algorithms, but it can be used in various kinds of integration tests that need multiple source tables (in common or separate schemas) that merge through *union* and/or *join* operations in order to populate a target schema.
 
 ## Getting Started
-To run Synthegrate, you can simply download the files in the *runnable_jar* folder which containst the JAR file and the util files that are needed to create the schemas and populate them with instances using [Datafiller](https://www.cri.ensmp.fr/people/coelho/datafiller.html).
+To run Synthegrate, you can simply download the files in the *runnable_jar* folder which contains the JAR file and the utility files that are needed to create the schemas and populate them with instances using [Datafiller](https://www.cri.ensmp.fr/people/coelho/datafiller.html).
 
 ### Prerequisites
 
@@ -35,6 +35,8 @@ E.g.
   - create_db_schemas
   - datafiller.py
   - dataFillerRunner
+
+**Warning**: When a new schema file is parsed, the schemas with the same name in the database will be dropped and created again. If you do not want to lose data, make sure you create backups of previously materialized scenarios if the schema names are the same in the scenario that is about to be materialized.
 
 ## Output files
 
@@ -110,7 +112,7 @@ The generated output files are all contained within a separate folder for each s
     - scenario.disjoint_unions = \<between 0.0 and 1.0\>
 14. Reuse already created attribute to split a relation in 2 relations linked through (explicit) FK.
     - scenario.reuse_join_attributes = \<between 0.0 and 1.0\>
-15. If the scenario should be created with the such that the union operations are expected at the end of the mapping.
+15. If the scenario should be created such that the union operations are expected to be performed at the end of the mapping (after several source relations have merged through join).
     - scenario.create_unions_first = \<**true** if unions are at the end, **false** if the unions are expected to be performed first\>
 16. The same as 15 but for join operations:
 	- scenario.create_joins_first = \<true or false\> 
