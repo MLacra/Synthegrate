@@ -14,21 +14,21 @@
  --df dictionary_13: word=/Users/lara/Documents/workspace-sts-3.9.3/Synthegrate/resources/dictionaries/primes-to-100k.txt 
  --df dictionary_14: word=/Users/lara/Documents/workspace-sts-3.9.3/Synthegrate/resources/dictionaries/primes-to-200k.txt 
  --df dictionary_15: word=/Users/lara/Documents/workspace-sts-3.9.3/Synthegrate/resources/dictionaries/words_alpha_370099.txt 
- CREATE TABLE schema_1.relation_1 ( --df: size=57 
+ CREATE TABLE public.relation_1 ( --df: size=57 
 attribute_5 text UNIQUE NOT NULL,--df: use=dictionary_0 offset=0 step=1 shift=0 size=1134
 attribute_0 text UNIQUE NOT NULL,--df: use=dictionary_7 offset=0 step=1 shift=0 size=47603
 attribute_2 text UNIQUE NOT NULL,--df: use=dictionary_10 offset=0 step=1 shift=0 size=3630
 attribute_3 text UNIQUE NOT NULL,--df: use=dictionary_6 offset=0 step=1 shift=0 size=9604
 attribute_4 text UNIQUE NOT NULL,--df: use=dictionary_15 offset=0 step=1 shift=0 size=370099
-attribute_11 text UNIQUE NOT NULL--df: prefix=TV
+attribute_11 text UNIQUE NOT NULL--df: prefix=pL
 );
 
-CREATE TABLE schema_1.relation_2 ( --df: size=245 
+CREATE TABLE public.relation_2 ( --df: size=245 
 attribute_6 text UNIQUE NOT NULL,--df: use=dictionary_0 offset=0 step=1 shift=0 size=1134
 attribute_1 text UNIQUE NOT NULL,--df: use=dictionary_8 offset=0 step=1 shift=0 size=9999
-attribute_7 text UNIQUE NOT NULL,--df: prefix=ssFSmLtzVH
-attribute_8 text UNIQUE NOT NULL,--df: prefix=AptgGF0EPl
-attribute_9 text UNIQUE NOT NULL,--df: prefix=Br2Q0t3F2w
-attribute_10 text UNIQUE NOT NULL--df: prefix=MQ
+attribute_7 text UNIQUE NOT NULL,--df: prefix=aiiX6mUs58
+attribute_8 text UNIQUE NOT NULL,--df: prefix=gSFYoirFW8
+attribute_9 text UNIQUE NOT NULL,--df: prefix=fdrrQSsCoo
+attribute_10 text UNIQUE NOT NULL--df: prefix=jz
 );
 

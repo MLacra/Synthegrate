@@ -13,7 +13,7 @@
     <type>relational</type>
     <relational>
       <driver>org.postgresql.Driver</driver>
- <uri>jdbc:postgresql://localhost:5432/tests_generator_chain_join</uri>
+ <uri>jdbc:postgresql://localhost:5432/synthetic</uri>
  <login>lara</login>
  <password>postgres</password> 
  </relational>
@@ -29,7 +29,7 @@
     <type>relational</type>
     <relational>
       <driver>org.postgresql.Driver</driver>
-      <uri> jdbc:postgresql://localhost:5432/tests_generator_chain_join_spicy_target</uri>
+      <uri> jdbc:postgresql://localhost:5432/synthetic</uri>
  <login>lara</login>
       <password>postgres</password>
     </relational>
@@ -43,42 +43,42 @@
 <correspondences>
 <correspondence>
 <source-paths>
-<source-path>tests_generator_chain_join.relation_1.relation_1Tuple.attribute_0</source-path>
+<source-path>synthetic.relation_1.relation_1Tuple.attribute_0</source-path>
 </source-paths>
-<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_0</target-path>
-<transformation-function>tests_generator_chain_join.relation_1.relation_1Tuple.attribute_0</transformation-function>
+<target-path>synthetic.relation_0.relation_0Tuple.attribute_0</target-path>
+<transformation-function>synthetic.relation_1.relation_1Tuple.attribute_0</transformation-function>
  <confidence>1.0</confidence>
 </correspondence>
 <correspondence>
 <source-paths>
-<source-path>tests_generator_chain_join.relation_1.relation_1Tuple.attribute_2</source-path>
+<source-path>synthetic.relation_1.relation_1Tuple.attribute_2</source-path>
 </source-paths>
-<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_2</target-path>
-<transformation-function>tests_generator_chain_join.relation_1.relation_1Tuple.attribute_2</transformation-function>
+<target-path>synthetic.relation_0.relation_0Tuple.attribute_2</target-path>
+<transformation-function>synthetic.relation_1.relation_1Tuple.attribute_2</transformation-function>
  <confidence>1.0</confidence>
 </correspondence>
 <correspondence>
 <source-paths>
-<source-path>tests_generator_chain_join.relation_1.relation_1Tuple.attribute_3</source-path>
+<source-path>synthetic.relation_1.relation_1Tuple.attribute_3</source-path>
 </source-paths>
-<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_3</target-path>
-<transformation-function>tests_generator_chain_join.relation_1.relation_1Tuple.attribute_3</transformation-function>
+<target-path>synthetic.relation_0.relation_0Tuple.attribute_3</target-path>
+<transformation-function>synthetic.relation_1.relation_1Tuple.attribute_3</transformation-function>
  <confidence>1.0</confidence>
 </correspondence>
 <correspondence>
 <source-paths>
-<source-path>tests_generator_chain_join.relation_1.relation_1Tuple.attribute_4</source-path>
+<source-path>synthetic.relation_1.relation_1Tuple.attribute_4</source-path>
 </source-paths>
-<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_4</target-path>
-<transformation-function>tests_generator_chain_join.relation_1.relation_1Tuple.attribute_4</transformation-function>
+<target-path>synthetic.relation_0.relation_0Tuple.attribute_4</target-path>
+<transformation-function>synthetic.relation_1.relation_1Tuple.attribute_4</transformation-function>
  <confidence>1.0</confidence>
 </correspondence>
 <correspondence>
 <source-paths>
-<source-path>tests_generator_chain_join.relation_2.relation_2Tuple.attribute_1</source-path>
+<source-path>synthetic.relation_2.relation_2Tuple.attribute_1</source-path>
 </source-paths>
-<target-path>tests_generator_chain_join_spicy_target.relation_0.relation_0Tuple.attribute_1</target-path>
-<transformation-function>tests_generator_chain_join.relation_2.relation_2Tuple.attribute_1</transformation-function>
+<target-path>synthetic.relation_0.relation_0Tuple.attribute_1</target-path>
+<transformation-function>synthetic.relation_2.relation_2Tuple.attribute_1</transformation-function>
  <confidence>1.0</confidence>
 </correspondence>
 </correspondences>

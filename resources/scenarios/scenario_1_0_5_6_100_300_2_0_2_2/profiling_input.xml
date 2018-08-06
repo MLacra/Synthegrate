@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <profile-data>
 	<keyCandidates>
-		<attribute schema = "schema_1" relation = "relation_1" name = "attribute_3"/>
 		<attribute schema = "schema_1" relation = "relation_2" name = "attribute_6"/>
+		<attribute schema = "schema_1" relation = "relation_2" name = "attribute_1"/>
 	</keyCandidates>
 	<inclusion-dependencies>
 		<inclusion-dependency>
-			<is-included distinct_values = "167">
+			<is-included distinct_values = "245">
 				<attribute schema = "schema_1" relation = "relation_2" name = "attribute_6"/>
 			</is-included>
 			<includes>
 				<attribute schema = "schema_1" relation ="relation_1" name = "attribute_5"/>
 			</includes>
-			<coefficient value = "0.8922155688622755"></coefficient>
+			<coefficient value = "0.23265306122448978"></coefficient>
 		</inclusion-dependency>
 		<inclusion-dependency>
-			<is-included distinct_values = "149">
+			<is-included distinct_values = "57">
 				<attribute schema = "schema_1" relation = "relation_1" name = "attribute_5"/>
 			</is-included>
 			<includes>

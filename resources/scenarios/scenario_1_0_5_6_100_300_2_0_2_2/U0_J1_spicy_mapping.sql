@@ -1,1 +1,2 @@
+-- After ++Spicy is run and the generated mapping is run manually to populate this target, then, in order to evaluate the output, a simple select is enough.
 SELECT attribute_0,attribute_1,attribute_2,attribute_3,attribute_4 FROM public.relation_0
